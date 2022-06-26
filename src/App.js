@@ -1,26 +1,34 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Route, Routes, useLocation } from "react-router-dom";
+import Menu from "./components/Menu";
+import Home from "./pages/Home";
+import Landing from "./pages/Landing";
+import Grow from "./pages/Grow";
+import Focus from "./pages/Focus";
+import { Manage, Thoughts, Challenges, Emotions } from "./pages/manage";
 
-function App() {
+const App = () => {
+  const location = useLocation();
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      {location.pathname !== "/" && <Menu />}
+
+      <Routes>
+        {/* Manage Routes */}
+        <Route path="manage" element={<Manage />}>
+          <Route index element={<Thoughts />} />
+          <Route path="thoughts" element={<Thoughts />} />
+          <Route path="challenges" element={<Challenges />} />
+          <Route path="emotions" element={<Emotions />} />
+        </Route>
+
+        <Route path="/grow" element={<Grow />} />
+        <Route path="/focus" element={<Focus />} />
+        <Route path="/Home" element={<Home />} />
+        <Route path="/" element={<Landing />} />
+        <Route path="*" element={<h2>404</h2>} />
+      </Routes>
+    </>
   );
-}
+};
 
 export default App;
