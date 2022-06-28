@@ -9,25 +9,25 @@ import {
 
 export const landingData = [
   {
-    icon: <IconManage active />,
+    icon: <IconManage active={+true} />,
     title: "Manage",
     data: ["Thoughts & Emotions", "Challenges & Decisions", "Stress & Chaos"],
     path: "/manage",
   },
   {
-    icon: <IconGrow active />,
+    icon: <IconGrow active={+true} />,
     title: "Grow",
     data: ["Inspiration", "Goals & Actions", "Reflections"],
     path: "/grow",
   },
   {
-    icon: <IconFocus active />,
+    icon: <IconFocus active={+true} />,
     title: "Focus",
     data: ["The Most Important Things"],
     path: "/focus",
   },
   {
-    icon: <IconConnect active />,
+    icon: <IconConnect active={+true} />,
     title: "Connect",
     data: ["Questions", "Advices", "Coaching"],
     path: "/connect",
@@ -37,34 +37,33 @@ export const landingData = [
 export const menuData = [
   {
     icon: <IconHome />,
-    title: <span className="text-gray">Home</span>,
+    title: 'Home',
     path: "/Home",
   },
   {
     icon: <IconManage />,
-    title: <span className="text-gray">Manage</span>,
+    title: 'Manage',
     path: "/manage",
   },
   {
     icon: <IconGrow />,
-    title: <span className="text-gray">Grow</span>,
+    title: 'Grow',
     path: "/grow",
   },
   {
     icon: <IconFocus />,
-    title: <span className="text-gray">Focus</span>,
+    title: 'Focus',
     path: "/Focus",
   },
   {
     icon: <IconConnect />,
-    title: <span className="text-gray">Connect</span>,
+    title: 'Connect',
     path: "/connect",
   },
   {
     icon: <IconNotifications />,
-    title: <span className="text-gray">Notifications</span>,
+    title: 'Notifications',
     path: "/notifications",
   },
 ];
 
-export const posts = [];

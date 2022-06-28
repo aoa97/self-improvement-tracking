@@ -20,7 +20,7 @@ const Manage = () => {
             to={tab.toLowerCase()}
             className={({ isActive }) =>
               isActive
-                ? "text-orange font-semibold border-b-2 border-orange"
+                ? "text-orange font-medium border-b-2 border-orange"
                 : undefined
             }
           >

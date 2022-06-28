@@ -1,4 +1,4 @@
-import Container from "../../components/Container";
+import { Textarea } from "flowbite-react";
 
 const Thoughts = () => {
   return (
@@ -14,12 +14,11 @@ const Thoughts = () => {
         better.
       </p>
 
-      <textarea
-        id="message"
-        rows="4"
-        className="block p-2.5 w-full text-sm text-gray-900 rounded-md border border-gray-100 focus:border-orange-100 md:w-1/2"
+      <Textarea
+        rows={6}
         placeholder="What's happening in your life?"
-      ></textarea>
+        className="mb-5 w-full p-3 focus:outline-orange-200"
+      />
     </div>
   );
 };

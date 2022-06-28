@@ -1,6 +1,22 @@
-import { IconCheck, IconPlus } from "../../components/icons";
+import { useState } from "react";
+import { IconPlus } from "../../components/icons";
+import Button from "../../components/Button";
+import ChallengeItem from "../../components/manage/ChallengeItem";
+import CreateChallenge from "../../components/manage/CreateChallenge";
+// test
+import { challenges } from "../../utils/dummy";
 
 const Challenges = () => {
+  const [creteVisible, setCreateVisible] = useState(false);
+
+  const handleOpenModal = () => {
+    setCreateVisible(true);
+  };
+
+  const handleCloseModal = () => {
+    setCreateVisible(false);
+  };
+
   return (
     <div>
       <h2 className="text-2xl">Being held back?</h2>
@@ -13,24 +29,20 @@ const Challenges = () => {
 
       <h3 className="text-xl mb-4">Your Challenges</h3>
 
-      <button className="rounded-md bg-orange text-white font-semibold flex justify-center fixed bottom-10 right-10 p-2">
-        <IconPlus />
-        New Challenge
-      </button>
+      {/* Create Challenge (Floated Btn)  */}
+      <Button
+        className="fixed bottom-10 right-10 "
+        onClick={handleOpenModal}
+        title="New Challenge"
+        icon={<IconPlus />}
+      />
+      <CreateChallenge visible={creteVisible} onClose={handleCloseModal} />
 
-      <section className="grid grid-cols-1 gap-4 md:w-1/2">
-        <article className="border rounded-md p-3 flex gap-x-3">
-          <IconCheck />
-
-          <div className="content">
-            <h4 className="text-lg">This is a completed challenge</h4>
-            <span className="text-sm text-gray-100">7 days remaining</span>
-            <p className="text-xs text-gray">
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum has been the industry's standard dummy text.
-            </p>
-          </div>
-        </article>
+      {/* Challenges List */}
+      <section className="grid gap-4 md:w-1/2">
+        {challenges.map((item) => (
+          <ChallengeItem key={item.id} item={item} />
+        ))}
       </section>
     </div>
   );

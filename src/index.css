@@ -8,12 +8,21 @@
     font-weight: 400;
     color: #111827;
   }
-}
 
-.menu-active path, .landing-ico path{
-  fill: #FFA866;
-}
-.menu-active span {
-  color: #FFA866;
-  font-weight: 500;
+  .menu-item:hover path {
+    @apply fill-orange !important;
+  }
+
+  .menu-item.active {
+    @apply bg-orange-100
+  }
+
+  .menu-item.active path,
+  .landing-ico path {
+    @apply fill-orange;
+  }
+  .menu-item.active span {
+    @apply text-orange;
+    font-weight: 500;
+  }
 }
