@@ -2,7 +2,7 @@ const plugin = require("tailwindcss/plugin");
 
 module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}", "./node_modules/flowbite/**/*.js"],
-  darkMode: 'disable',
+  darkMode: "disable",
   theme: {
     fontFamily: {
       body: ["Baloo Bhaijaan 2", "cursive"],
@@ -35,11 +35,13 @@ module.exports = {
     },
   },
   daisyui: {
-    themes: false,
+    themes: [
+      {
+        light: {
+          primary: "blue",
+        },
+      },
+    ],
   },
-  plugins: [
-    function ({ addVariant }) {
-      addVariant("child", "&:nth-child(1)");
-    },
-  ],
+  plugins: [require("daisyui")],
 };

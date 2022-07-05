@@ -1,5 +1,5 @@
 import { Outlet } from "react-router-dom";
-import Container from "../../components/Container";
+import Container from "../../components/layout/Container";
 import TabMenu from "../../components/TabMenu";
 
 const tabs = ["Vision", "Goals", "Reflection"];

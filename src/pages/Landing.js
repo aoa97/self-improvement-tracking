@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
-import { landingData } from "../utils/data";
+
+import landingData from "../utils/landing-data";
 
 const Landing = () => {
   const nav = useNavigate();

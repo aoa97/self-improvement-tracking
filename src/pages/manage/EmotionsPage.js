@@ -1,4 +1,4 @@
-import Container from "../../components/Container";
+import Container from "../../components/layout/Container";
 
 const Emotions = () => {
   return <h3>Emotions</h3>;

@@ -1,13 +1,12 @@
 import { useState } from "react";
+
 import { IconPlus } from "../../components/icons";
-import Button from "../../components/Button";
-import ChallengeItem from "../../components/manage/ChallengeItem";
+import Button from "../../components/ui/Button";
 import CreateChallenge from "../../components/manage/CreateChallenge";
-// test
-import { challenges } from "../../utils/dummy";
+import ChallengeList from "../../components/manage/ChallengeList";
 
 const Challenges = () => {
-  const [creteVisible, setCreateVisible] = useState(false);
+  const [createVisible, setCreateVisible] = useState(false);
 
   const handleOpenModal = () => {
     setCreateVisible(true);
@@ -31,19 +30,14 @@ const Challenges = () => {
 
       {/* Create Challenge (Floated Btn)  */}
       <Button
-        className="fixed bottom-10 right-10 "
+        className="fixed bottom-10 right-10"
         onClick={handleOpenModal}
         title="New Challenge"
         icon={<IconPlus />}
       />
-      <CreateChallenge visible={creteVisible} onClose={handleCloseModal} />
+      <CreateChallenge visible={createVisible} onClose={handleCloseModal} />
 
-      {/* Challenges List */}
-      <section className="grid gap-4 md:w-1/2">
-        {challenges.map((item) => (
-          <ChallengeItem key={item.id} item={item} />
-        ))}
-      </section>
+      <ChallengeList />
     </div>
   );
 };

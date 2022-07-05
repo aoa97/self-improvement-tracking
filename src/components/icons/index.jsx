@@ -116,14 +116,14 @@ export const IconCheck = (props) => (
   >
     <path
       d="M22 11.08V12a10 10 0 1 1-5.93-9.14"
-      stroke={props.active ? "#FFA866" : {color}}
+      stroke={props.active ? "#FFA866" : "#CBCBCB"}
       strokeWidth={2}
       strokeLinecap="round"
       strokeLinejoin="round"
     />
     <path
       d="M22 4 12 14.01l-3-3"
-      stroke={props.active ? "#FFA866" : {color}}
+      stroke={props.active ? "#FFA866" : "#CBCBCB"}
       strokeWidth={2}
       strokeLinecap="round"
       strokeLinejoin="round"

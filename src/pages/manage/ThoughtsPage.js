@@ -1,6 +1,19 @@
+import { useState } from "react";
 import { Textarea } from "flowbite-react";
 
+import CreateThought from "../../components/manage/CreateThought";
+
 const Thoughts = () => {
+  const [createVisible, setCreateVisible] = useState(false);
+
+  const handleShowModal = () => {
+    setCreateVisible(true);
+  };
+
+  const handleHideModal = () => {
+    setCreateVisible(false);
+  };
+
   return (
     <div>
       <h2 className="text-2xl font-medium">Managing our thoughts</h2>
@@ -17,8 +30,11 @@ const Thoughts = () => {
       <Textarea
         rows={6}
         placeholder="What's happening in your life?"
+        onClick={handleShowModal}
         className="mb-5 w-full p-3 focus:outline-orange-200"
       />
+
+      <CreateThought visible={createVisible} onClose={handleHideModal} />
     </div>
   );
 };

@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { NavLink, Outlet, useNavigate } from "react-router-dom";
-import Container from "../../components/Container";
+import Container from "../../components/layout/Container";
 
 const tabs = ["Thoughts", "Challenges", "Emotions"];
 

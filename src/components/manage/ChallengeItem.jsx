@@ -2,7 +2,7 @@ import { IconCheck } from "../../components/icons";
 
 const ChallengeItem = ({ item }) => {
   return (
-    <article className="border rounded-md p-3 flex justify-between gap-x-3">
+    <article className="border rounded-md p-3 flex   gap-x-3">
       <button className="h-fit">
         <IconCheck active={+item.completed} />
       </button>

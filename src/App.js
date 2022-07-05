@@ -1,5 +1,8 @@
 import { Route, Routes, useLocation } from "react-router-dom";
-import Menu from "./components/Menu";
+import { Provider } from "react-redux";
+
+import store from "./redux/store";
+import Menu from "./components/layout/Menu";
 import Home from "./pages/Home";
 import Landing from "./pages/Landing";
 import Focus from "./pages/Focus";
@@ -13,28 +16,30 @@ const App = () => {
     <>
       {location.pathname !== "/" && <Menu />}
 
-      <Routes>
-        {/* Manage Routes */}
-        <Route path="manage" element={<Manage />}>
-          <Route index element={<Thoughts />} />
-          <Route path="thoughts" element={<Thoughts />} />
-          <Route path="challenges" element={<Challenges />} />
-          <Route path="emotions" element={<Emotions />} />
-        </Route>
+      <Provider store={store}>
+        <Routes>
+          {/* Manage Routes */}
+          <Route path="manage" element={<Manage />}>
+            <Route index element={<Thoughts />} />
+            <Route path="thoughts" element={<Thoughts />} />
+            <Route path="challenges" element={<Challenges />} />
+            <Route path="emotions" element={<Emotions />} />
+          </Route>
 
-        {/* Grow Routes */}
-        <Route path="grow" element={<Grow />}>
-          <Route index element={<Vision />} />
-          <Route path="vision" element={<Vision />} />
-          <Route path="goals" element={<Goals />} />
-          <Route path="reflection" element={<Reflection />} />
-        </Route>
+          {/* Grow Routes */}
+          <Route path="grow" element={<Grow />}>
+            <Route index element={<Vision />} />
+            <Route path="vision" element={<Vision />} />
+            <Route path="goals" element={<Goals />} />
+            <Route path="reflection" element={<Reflection />} />
+          </Route>
 
-        <Route path="/focus" element={<Focus />} />
-        <Route path="/Home" element={<Home />} />
-        <Route path="/" element={<Landing />} />
-        <Route path="*" element={<h2>404</h2>} />
-      </Routes>
+          <Route path="/focus" element={<Focus />} />
+          <Route path="/Home" element={<Home />} />
+          <Route path="/" element={<Landing />} />
+          <Route path="*" element={<h2>404</h2>} />
+        </Routes>
+      </Provider>
     </>
   );
 };
