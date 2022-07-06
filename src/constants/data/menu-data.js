@@ -5,7 +5,7 @@ import {
   IconFocus,
   IconConnect,
   IconNotifications,
-} from "../components/icons";
+} from "../../components/icons";
 
 const menuData = [
   {

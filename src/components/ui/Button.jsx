@@ -1,8 +1,14 @@
-const Button = ({ className, title, icon, ...otherProps }) => {
+const Button = ({ className, title, icon, color, ...otherProps }) => {
+  let style = "bg-orange hover:bg-orange-400 text-white focus:ring-orange-300";
+
+  if (color === "secondary") {
+    style = "bg-gray-200 hover:bg-gray-100 text-black focus:ring-gray-300";
+  }
+
   return (
     <button
       {...otherProps}
-      className={`flex items-center justify-center px-2 py-2 font-medium tracking-wide text-white capitalize transition-colors duration-200 transform bg-orange rounded-md hover:bg-orange-400 focus:outline-none focus:ring focus:ring-orange-300 focus:ring-opacity-80 ${className}`}
+      className={`flex items-center justify-center px-2 py-2 font-medium tracking-wide capitalize transition-colors duration-200 transform rounded-md focus:outline-none focus:ring focus:ring-opacity-80 ${style} ${className}`}
     >
       {icon}
       <span className={`mx-1 ${icon ? "relative top-0.5" : ""}`}>{title}</span>

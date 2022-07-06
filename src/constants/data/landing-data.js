@@ -3,7 +3,7 @@ import {
   IconGrow,
   IconFocus,
   IconConnect,
-} from "../components/icons";
+} from "../../components/icons";
 
 const landingData = [
   {

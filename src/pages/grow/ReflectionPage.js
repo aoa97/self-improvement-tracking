@@ -1,7 +1,5 @@
-const Reflection = () => {
-    return (
-        <h2>Reflection</h2>
-    );
-}
+import Questions from "../../components/ReflectionAndEmotions/Questions";
 
-export default Reflection;
+export default function Reflection() {
+  return <Questions />;
+}

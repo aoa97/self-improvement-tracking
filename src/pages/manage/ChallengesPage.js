@@ -2,8 +2,8 @@ import { useState } from "react";
 
 import { IconPlus } from "../../components/icons";
 import Button from "../../components/ui/Button";
-import CreateChallenge from "../../components/manage/CreateChallenge";
-import ChallengeList from "../../components/manage/ChallengeList";
+import Create from "../../components/ChallengeAndGoal/Create";
+import List from "../../components/ChallengeAndGoal/List";
 
 const Challenges = () => {
   const [createVisible, setCreateVisible] = useState(false);
@@ -35,9 +35,13 @@ const Challenges = () => {
         title="New Challenge"
         icon={<IconPlus />}
       />
-      <CreateChallenge visible={createVisible} onClose={handleCloseModal} />
+      <Create
+        mode="challenge"
+        visible={createVisible}
+        onClose={handleCloseModal}
+      />
 
-      <ChallengeList />
+      <List mode="challenge" />
     </div>
   );
 };

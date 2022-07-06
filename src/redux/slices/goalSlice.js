@@ -9,13 +9,13 @@ const goalSlice = createSlice({
         title: "First goal",
         description:
           "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text.",
-        date: "7 days (test)",
+        date: "2022-7-6",
         completed: true,
       },
       {
         id: 2,
         title: "Second goal",
-        date: "7 days (test)",
+        date: "2022-7-7",
         description:
           "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text.",
         completed: false,
@@ -32,8 +32,14 @@ const goalSlice = createSlice({
       };
       state.goalList.push(goal);
     },
+    toggleCompleteGoal: (state, action) => {
+      const id = action.payload;
+      const item = state.goalList.find((x) => x.id === id);
+      item.completed = !item.completed;
+    },
   },
 });
 
 export const addgoal = goalSlice.actions.addgoal;
+export const toggleCompleteGoal = goalSlice.actions.toggleCompleteGoal;
 export default goalSlice.reducer;

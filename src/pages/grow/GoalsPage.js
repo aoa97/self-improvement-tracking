@@ -1,10 +1,9 @@
 import { useState } from "react";
+
 import { IconPlus } from "../../components/icons";
 import Button from "../../components/ui/Button";
-import ChallengeItem from "../../components/manage/ChallengeItem";
-import CreateChallenge from "../../components/manage/CreateChallenge";
-// test
-import { goals } from "../../utils/dummy";
+import List from "../../components/ChallengeAndGoal/List";
+import Create from "../../components/ChallengeAndGoal/Create";
 
 const Goals = () => {
   const [createVisible, setCreateVisible] = useState(false);
@@ -36,14 +35,9 @@ const Goals = () => {
         title="New Goal"
         icon={<IconPlus />}
       />
-      <CreateChallenge visible={createVisible} onClose={handleCloseModal} />
+      <Create mode="goal" visible={createVisible} onClose={handleCloseModal} />
 
-      {/* Goals List */}
-      <section className="grid gap-4 md:w-3/5">
-        {goals.map((item) => (
-          <ChallengeItem key={item.id} item={item} />
-        ))}
-      </section>
+      <List mode="goal" />
     </div>
   );
 };

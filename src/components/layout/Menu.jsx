@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
 
-import menuData from "../../utils/menu-data";
+import menuData from "../../constants/data/menu-data";
 
 const Menu = () => {
   return (

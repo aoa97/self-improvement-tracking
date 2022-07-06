@@ -11,7 +11,7 @@ const AddToGroup = () => {
 
       <div className="flex flex-col gap-y-2">
         {groupList.map((group) => (
-          <div className="bg-gray-100 bg-opacity-10 rounded-md py-2 px-2 flex cursor-pointer">
+          <div key={group} className="bg-gray-100 bg-opacity-10 rounded-md py-2 px-2 flex cursor-pointer">
             <IconNotSelected />
             <span className="ml-4">{group}</span>
           </div>

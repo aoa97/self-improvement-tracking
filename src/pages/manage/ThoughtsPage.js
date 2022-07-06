@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { Textarea } from "flowbite-react";
 
-import CreateThought from "../../components/manage/CreateThought";
+import Create from "../../components/ThoughtAndVision/Create";
 
-const Thoughts = () => {
+export default function Thoughts() {
   const [createVisible, setCreateVisible] = useState(false);
 
   const handleShowModal = () => {
@@ -34,9 +34,11 @@ const Thoughts = () => {
         className="mb-5 w-full p-3 focus:outline-orange-200"
       />
 
-      <CreateThought visible={createVisible} onClose={handleHideModal} />
+      <Create
+        mode="thought"
+        visible={createVisible}
+        onClose={handleHideModal}
+      />
     </div>
   );
-};
-
-export default Thoughts;
+}

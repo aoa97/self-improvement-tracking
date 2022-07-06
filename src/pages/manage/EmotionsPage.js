@@ -1,7 +1,5 @@
-import Container from "../../components/layout/Container";
+import Questions from "../../components/ReflectionAndEmotions/Questions";
 
-const Emotions = () => {
-  return <h3>Emotions</h3>;
-};
-
-export default Emotions;
+export default function Emotions() {
+  return <Questions />;
+}
