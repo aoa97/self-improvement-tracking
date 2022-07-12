@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { Textarea } from "flowbite-react";
 
-import AddToGroup from "../AddToGroup";
+import AddToGroup from "../ui/AddToGroup";
 import TextInput from "../ui/TextInput";
 import Modal from "../ui/Modal";
 import { addChallenge } from "../../redux/slices/challengeSlice";
@@ -15,12 +15,25 @@ export default function CreateChallenge({ visible, onClose, mode }) {
     decritption: "",
     date: "",
   });
+  const [selGroups, setSelGroups] = useState([]);
 
   const handleInputChange = (field, e) => {
     setValues((currentValues) => ({
       ...currentValues,
       [field]: e.target.value,
     }));
+  };
+
+  const handleSelectGroup = (title) => {
+    if (selGroups.includes(title)) {
+      setSelGroups((curGroups) => curGroups.filter((item) => item !== title));
+    } else {
+      setSelGroups((curGroups) => {
+        if (!curGroups.includes(title)) {
+          return [...curGroups, title];
+        }
+      });
+    }
   };
 
   const handleSubmit = () => {
@@ -67,7 +80,7 @@ export default function CreateChallenge({ visible, onClose, mode }) {
         onChange={handleInputChange.bind(this, "date")}
       />
 
-      <AddToGroup />
+      <AddToGroup onSelectGroup={handleSelectGroup} selGroups={selGroups} />
     </Modal>
   );
 }

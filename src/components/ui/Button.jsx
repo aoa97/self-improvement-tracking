@@ -1,4 +1,10 @@
-const Button = ({ className, title, icon, color, ...otherProps }) => {
+export default function Button({
+  className,
+  title,
+  icon,
+  color,
+  ...otherProps
+}) {
   let style = "bg-orange hover:bg-orange-400 text-white focus:ring-orange-300";
 
   if (color === "secondary") {
@@ -14,6 +20,4 @@ const Button = ({ className, title, icon, color, ...otherProps }) => {
       <span className={`mx-1 ${icon ? "relative top-0.5" : ""}`}>{title}</span>
     </button>
   );
-};
-
-export default Button;
+}

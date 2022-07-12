@@ -21,16 +21,14 @@ export default function FocusList() {
   return (
     <ul className="flex flex-col gap-y-3">
       {focusList.map((item) => (
-        <li
+        <button
           key={item.id}
+          onClick={handleItemToggle.bind(this, item.id)}
           className="bg-gray-100 bg-opacity-10 rounded-md p-3 text-lg flex items-center gap-x-3 hover:bg-orange-100 hover:translate-y-1 transition-all cursor-pointer"
         >
-          <IconButton
-            onClick={handleItemToggle.bind(this, item.id)}
-            icon={item.completed ? <IconSelected /> : <IconNotSelected />}
-          />
+          {item.completed ? <IconSelected /> : <IconNotSelected />}
           {item.text}
-        </li>
+        </button>
       ))}
     </ul>
   );

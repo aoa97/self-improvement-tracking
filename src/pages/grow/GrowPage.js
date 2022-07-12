@@ -1,17 +1,14 @@
 import { Outlet } from "react-router-dom";
 import Container from "../../components/layout/Container";
-import TabMenu from "../../components/TabMenu";
+import TabMenu from "../../components/ui/TabMenu";
 
 const tabs = ["Vision", "Goals", "Reflection"];
 
-const Grow = () => {
+export default function Grow() {
   return (
     <Container>
       <TabMenu list={tabs} />
-
       <Outlet />
     </Container>
   );
-};
-
-export default Grow;
+}

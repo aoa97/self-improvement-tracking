@@ -5,7 +5,7 @@ import Button from "../../components/ui/Button";
 import List from "../../components/ChallengeAndGoal/List";
 import Create from "../../components/ChallengeAndGoal/Create";
 
-const Goals = () => {
+export default function Goals() {
   const [createVisible, setCreateVisible] = useState(false);
 
   const handleOpenModal = () => {
@@ -40,6 +40,4 @@ const Goals = () => {
       <List mode="goal" />
     </div>
   );
-};
-
-export default Goals;
+}

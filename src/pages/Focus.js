@@ -1,6 +1,6 @@
 import Container from "../components/layout/Container";
-import FocusList from "../components/focus/FocusList";
-import FocusForm from "../components/focus/FocusForm";
+import FocusList from "../components/Focus/FocusList";
+import FocusForm from "../components/Focus/FocusForm";
 
 export default function Focus() {
   return (

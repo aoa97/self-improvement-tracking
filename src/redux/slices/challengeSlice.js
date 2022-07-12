@@ -6,19 +6,30 @@ const challengeSlice = createSlice({
     challengeList: [
       {
         id: 1,
-        title: "First challenge",
+        title: "First challenge at family",
         description:
-          "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text.",
+          "This is the first challenge. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text.",
         date: "2022-07-10",
         completed: true,
+        groups: ["Family"]
       },
       {
         id: 2,
-        title: "Second challenge",
+        title: "Second challenge at friends",
         date: "2022-07-23",
         description:
-          "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text.",
+          "This is the second challenge. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text.",
         completed: false,
+        groups: ["Family"]
+      },
+      {
+        id: 3,
+        title: "Second challenge at friends and work",
+        date: "2022-07-23",
+        description:
+          "This is the second challenge. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text.",
+        completed: false,
+        groups: ["Friends", "Work"]
       },
     ],
   },
@@ -41,5 +52,6 @@ const challengeSlice = createSlice({
 });
 
 export const addChallenge = challengeSlice.actions.addChallenge;
-export const toggleCompleteChallenge = challengeSlice.actions.toggleCompleteChallenge;
+export const toggleCompleteChallenge =
+  challengeSlice.actions.toggleCompleteChallenge;
 export default challengeSlice.reducer;

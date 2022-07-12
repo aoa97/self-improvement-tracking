@@ -37,7 +37,7 @@ const App = () => {
           <Route path="/focus" element={<Focus />} />
           <Route path="/Home" element={<Home />} />
           <Route path="/" element={<Landing />} />
-          <Route path="*" element={<h2>404</h2>} />
+          <Route path="*" element={() => <h2>404</h2>} />
         </Routes>
       </Provider>
     </>

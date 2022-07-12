@@ -5,7 +5,7 @@ import Button from "../../components/ui/Button";
 import Create from "../../components/ChallengeAndGoal/Create";
 import List from "../../components/ChallengeAndGoal/List";
 
-const Challenges = () => {
+export default function Challenges() {
   const [createVisible, setCreateVisible] = useState(false);
 
   const handleOpenModal = () => {
@@ -18,7 +18,7 @@ const Challenges = () => {
 
   return (
     <div>
-      <h2 className="text-2xl">Being held back?</h2>
+      <h2 className="text-2xl font-medium">Being held back?</h2>
 
       <p className="my-4 text-justify md:text-lg">
         Sometimes we find ourselves in situations that are challenging our
@@ -44,6 +44,4 @@ const Challenges = () => {
       <List mode="challenge" />
     </div>
   );
-};
-
-export default Challenges;
+}

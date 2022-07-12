@@ -6,19 +6,21 @@ const goalSlice = createSlice({
     goalList: [
       {
         id: 1,
-        title: "First goal",
+        title: "First goal at family and friends",
         description:
-          "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text.",
-        date: "2022-7-6",
+          "This is the first goal. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text.",
+        date: "2022-07-10",
         completed: true,
+        groups: ["Family", "Friends"]
       },
       {
         id: 2,
-        title: "Second goal",
-        date: "2022-7-7",
+        title: "Second goal at work",
+        date: "2022-07-23",
         description:
-          "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text.",
+          "This is the second goal. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text.",
         completed: false,
+        groups: ["Work"]
       },
     ],
   },

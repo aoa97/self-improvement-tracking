@@ -3,7 +3,7 @@ import { Fragment } from "react";
 
 import Button from "../ui/Button";
 
-const Modal = ({ children, onSubmit, title, visible, onClose }) => {
+export default function Modal({ children, onSubmit, title, visible, onClose }) {
   return (
     <Transition appear show={visible} as={Fragment}>
       <Dialog as="div" className="relative z-10" onClose={onClose}>
@@ -52,6 +52,4 @@ const Modal = ({ children, onSubmit, title, visible, onClose }) => {
       </Dialog>
     </Transition>
   );
-};
-
-export default Modal;
+}

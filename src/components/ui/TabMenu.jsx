@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 
-const TabMenu = ({ list }) => {
+export default function TabMenu({ list }) {
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -25,6 +25,4 @@ const TabMenu = ({ list }) => {
       ))}
     </nav>
   );
-};
-
-export default TabMenu;
+}
