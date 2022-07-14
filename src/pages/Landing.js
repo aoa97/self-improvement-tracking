@@ -1,6 +1,16 @@
+import { useEffect } from "react";
+
 import LandingButtons from "../components/Landing/LandingButtons";
 
-const Landing = () => {
+const Landing = ({ onHideMenu, onShowMenu }) => {
+  useEffect(() => {
+    onHideMenu();
+
+    return () => {
+      onShowMenu();
+    };
+  }, []);
+
   return (
     <div className="container mx-auto p-5">
       <h1 className="text-3xl font-semibold">Start Your Journey</h1>

@@ -1,20 +1,32 @@
-import { Route, Routes, useLocation } from "react-router-dom";
+import { useState } from "react";
 import { Provider } from "react-redux";
+import { Route, Routes, useLocation } from "react-router-dom";
 
 import store from "./redux/store";
 import Menu from "./components/layout/Menu";
 import Home from "./pages/Home";
 import Landing from "./pages/Landing";
 import Focus from "./pages/Focus";
+import NotFound from "./pages/NotFound";
+import Connect from "./pages/Connect";
+import Notifications from "./pages/Notifications";
 import { Manage, Thoughts, Challenges, Emotions } from "./pages/manage";
 import { Grow, Vision, Goals, Reflection } from "./pages/grow";
 
 const App = () => {
-  const location = useLocation();
+  const [hideMenu, setHideMenu] = useState(false);
+
+  const handleHideMenu = () => {
+    setHideMenu(true);
+  };
+
+  const handleShowMenu = () => {
+    setHideMenu(false);
+  };
 
   return (
     <>
-      {location.pathname !== "/" && <Menu />}
+      {!hideMenu && <Menu />}
 
       <Provider store={store}>
         <Routes>
@@ -34,10 +46,28 @@ const App = () => {
             <Route path="reflection" element={<Reflection />} />
           </Route>
 
+          <Route path="/connect" element={<Connect />} />
+          <Route path="/notifications" element={<Notifications />} />
           <Route path="/focus" element={<Focus />} />
           <Route path="/Home" element={<Home />} />
-          <Route path="/" element={<Landing />} />
-          <Route path="*" element={() => <h2>404</h2>} />
+          <Route
+            path="/"
+            element={
+              <Landing
+                onHideMenu={handleHideMenu}
+                onShowMenu={handleShowMenu}
+              />
+            }
+          />
+          <Route
+            path="*"
+            element={
+              <NotFound
+                onHideMenu={handleHideMenu}
+                onShowMenu={handleShowMenu}
+              />
+            }
+          />
         </Routes>
       </Provider>
     </>

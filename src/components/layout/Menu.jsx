@@ -2,9 +2,9 @@ import { NavLink } from "react-router-dom";
 
 import menuData from "../../constants/data/menu-data";
 
-const Menu = () => {
+export default function Menu() {
   return (
-    <aside className="w-[60px] fixed left-0 h-full lg:w-[240px] xs:w-full xs:h-auto xs:bottom-0">
+    <aside className="w-[60px] fixed left-0 h-full lg:w-[240px] xs:w-full xs:h-auto xs:bottom-0 z-10">
       <nav className="gap-y-4 py-5 px-2 h-full bg-white shadow-card flex flex-col lg:px-3 xs:py-2 xs:flex-row xs:justify-between">
         {menuData.map((x, i) => (
           <NavLink
@@ -26,6 +26,4 @@ const Menu = () => {
       </nav>
     </aside>
   );
-};
-
-export default Menu;
+}
