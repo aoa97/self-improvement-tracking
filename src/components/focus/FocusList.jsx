@@ -2,7 +2,6 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 
 import Alert from "../ui/Alert";
-import IconButton from "../ui/IconButton";
 import { IconNotSelected, IconSelected } from "../icons";
 import { toggleCompleteItem } from "../../redux/slices/focusSlice";
 

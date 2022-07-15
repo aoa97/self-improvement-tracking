@@ -11,6 +11,10 @@ export default function PostList({ mode, selGroup }) {
     list = list.filter((item) => item.groups.includes(selGroup));
   }
 
+  if(thoughtList.length === 0 && visionList.length === 0) {
+    return <h2>Empty</h2>
+  }
+
   return (
     <>
       {list.map((item) => (

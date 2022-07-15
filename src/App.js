@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Provider } from "react-redux";
-import { Route, Routes, useLocation } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 
 import store from "./redux/store";
 import Menu from "./components/layout/Menu";
@@ -26,9 +26,9 @@ const App = () => {
 
   return (
     <>
-      {!hideMenu && <Menu />}
-
       <Provider store={store}>
+        {!hideMenu && <Menu />}
+
         <Routes>
           {/* Manage Routes */}
           <Route path="manage" element={<Manage />}>

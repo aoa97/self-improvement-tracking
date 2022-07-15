@@ -11,6 +11,10 @@ export default function TimelineList({ mode, selGroup }) {
     list = list.filter((item) => item.groups.includes(selGroup));
   }
 
+  if(list.length === 0) {
+    return null;
+  }
+
   return (
     <>
       <div>

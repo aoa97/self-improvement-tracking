@@ -10,6 +10,6 @@ export const getDateMinusDate = (date) => {
   } else if (diff === 1) {
     return `${diff} day`;
   } else {
-    return `Today`
+    return `Today`;
   }
 };

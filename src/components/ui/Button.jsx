@@ -3,12 +3,24 @@ export default function Button({
   title,
   icon,
   color,
+  mode,
   ...otherProps
 }) {
   let style = "bg-orange hover:bg-orange-400 text-white focus:ring-orange-300";
 
   if (color === "secondary") {
     style = "bg-gray-200 hover:bg-gray-100 text-black focus:ring-gray-300";
+  }
+
+  if (mode === "link") {
+    return (
+      <button {...otherProps} className="text-md text-orange font-medium">
+        {icon}
+        <span className={`mx-1 ${icon ? "relative top-0.5" : ""}`}>
+          {title}
+        </span>
+      </button>
+    );
   }
 
   return (

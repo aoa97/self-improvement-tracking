@@ -1,12 +1,22 @@
 import { NavLink } from "react-router-dom";
 
 import menuData from "../../constants/data/menu-data";
+import useAppData from "../../hooks/useAppData";
 
 export default function Menu() {
+  const { isAvailableData } = useAppData();
+
+  let list = menuData;
+
+  // Hide Home if no data available
+  if (!isAvailableData) {
+    list = menuData.slice(1); 
+  }
+
   return (
     <aside className="w-[60px] fixed left-0 h-full lg:w-[240px] xs:w-full xs:h-auto xs:bottom-0 z-10">
       <nav className="gap-y-4 py-5 px-2 h-full bg-white shadow-card flex flex-col lg:px-3 xs:py-2 xs:flex-row xs:justify-between">
-        {menuData.map((x, i) => (
+        {list.map((x, i) => (
           <NavLink
             className={({ isActive }) =>
               isActive ? "menu-item rounded-md active" : "menu-item"

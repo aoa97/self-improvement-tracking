@@ -5,14 +5,16 @@ import { Textarea } from "flowbite-react";
 import AddToGroup from "../ui/AddToGroup";
 import TextInput from "../ui/TextInput";
 import Modal from "../ui/Modal";
+import ErrorMessage from "../ui/ErrorMessage";
 import { addChallenge } from "../../redux/slices/challengeSlice";
 import { addgoal } from "../../redux/slices/goalSlice";
 
 export default function CreateChallenge({ visible, onClose, mode }) {
   const dispatch = useDispatch();
+  const [errorMessage, setErrorMessage] = useState();
   const [values, setValues] = useState({
     title: "",
-    decritption: "",
+    description: "",
     date: "",
   });
   const [selGroups, setSelGroups] = useState([]);
@@ -37,14 +39,29 @@ export default function CreateChallenge({ visible, onClose, mode }) {
   };
 
   const handleSubmit = () => {
+    setErrorMessage(null);
+    if (
+      values.title.length === 0 ||
+      values.description.length === 0 ||
+      values.date.length === 0
+    ) {
+      setErrorMessage("Please complete the entire fields.");
+      return;
+    }
+
+    if (selGroups.length === 0) {
+      setErrorMessage("Please select at least one group.");
+      return;
+    }
+
     if (mode === "challenge") {
-      dispatch(addChallenge({ ...values }));
+      dispatch(addChallenge({ ...values, groups: selGroups }));
     } else {
-      dispatch(addgoal({ ...values }));
+      dispatch(addgoal({ ...values, groups: selGroups }));
     }
     setValues({
       title: "",
-      decritption: "",
+      description: "",
       date: "",
     });
     onClose();
@@ -80,7 +97,13 @@ export default function CreateChallenge({ visible, onClose, mode }) {
         onChange={handleInputChange.bind(this, "date")}
       />
 
-      <AddToGroup onSelectGroup={handleSelectGroup} selGroups={selGroups} />
+      <AddToGroup
+        onError={(error) => setErrorMessage(error)}
+        onSelectGroup={handleSelectGroup}
+        selGroups={selGroups}
+      />
+
+      <ErrorMessage className="mt-4">{errorMessage}</ErrorMessage>
     </Modal>
   );
 }

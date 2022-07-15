@@ -9,7 +9,7 @@ const focusSlice = createSlice({
     addFocusItem: (state, action) => {
       const item = {
         id: Math.ceil(Math.random() * 50),
-        date: new Date(),
+        createdAt: new Date().toISOString(),
         completed: false,
         text: action.payload,
       };
