@@ -32,14 +32,4 @@ module.exports = {
       },
     },
   },
-  daisyui: {
-    themes: [
-      {
-        light: {
-          primary: "blue",
-        },
-      },
-    ],
-  },
-  plugins: [require("daisyui")],
 };
