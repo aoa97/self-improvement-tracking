@@ -24,10 +24,10 @@ export default function Menu() {
             to={x.path}
             key={i}
           >
-            <div className="group flex items-center justify-center p-2 gap-x-5 lg:justify-start lg:py-3 lg:px-4 transition-all ease-in-out hover:bg-orange-100 hover:lg:translate-x-1 ">
+            <div className="group flex items-center justify-center p-2 gap-x-5 lg:justify-start lg:py-3 lg:px-4 transition-all ease-in-out hover:bg-orange-100 hover:lg:translate-x-1">
               <span>{x.icon}</span>
 
-              <span className="d-none text-gray group-hover:text-orange relative top-0.5 lg:block">
+              <span className="hidden text-gray group-hover:text-orange relative top-0.5 lg:block">
                 {x.title}
               </span>
             </div>
